@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jo Andrei D. Bonite | Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        header {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+        header img {
+            border-radius: 50%;
+            width: 160px;
+            height: 160px;
+            object-fit: cover;
+            border: 4px solid white;
+        }
+        header h1 {
+            margin: 15px 0 5px;
+            font-size: 28px;
+        }
+        header h2 {
+            margin: 5px 0;
+            font-weight: normal;
+            font-size: 18px;
+        }
+        section {
+            max-width: 1000px;
+            margin: auto;
+            padding: 20px;
+        }
+        h3 {
+            color: #003366;
+            border-bottom: 2px solid #003366;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        ul li {
+            margin-bottom: 10px;
+        }
+        .contact a {
+            color: #003366;
+            text-decoration: none;
+        }
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: #003366;
+            color: white;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="BONITE, JO ANDREI D..png" alt="Jo Andrei D. Bonite">
+    <h1>Jo Andrei D. Bonite</h1>
+    <h2>Content Writer | Virtual Assistant | Social Media Manager</h2>
+    <p>SEO-driven content writing, copyediting, creative storytelling, social media strategy</p>
+</header>
+
+<section>
+    <h3>About Me</h3>
+    <p>SEO-driven Content Writer with 10+ years of experience across editorial, academic, and digital platforms. Proven to increase content engagement by 15–35% through strong research, copyediting, and content strategy. Also experienced as a Virtual Assistant and Social Media Manager, enhancing workflows and brand execution.</p>
+</section>
+
+<section>
+    <h3>Professional Experience</h3>
+    <ul>
+        <li><strong>Associate Editor</strong> – Vital Signs Publication (2024–2025): Edited 50+ articles, improved engagement by 30%, managed editorial calendars, and designed cohesive visuals.</li>
+        <li><strong>Circulation & Senior Feature Editor</strong> – Vital Signs Publication (2023–2024): Led features section, mentored writers, increased section engagement by 15%.</li>
+        <li><strong>Virtual Assistant (SEO)</strong> – Credit CRB (2025): Produced 15+ SEO-optimized articles, improved rankings, supported lead generation, and streamlined workflows.</li>
+        <li><strong>Staff Writer</strong> – Silahis Publication (2018–2022): Wrote creative and campus-focused articles featured online and in print.</li>
+    </ul>
+</section>
+
+<section>
+    <h3>Skills & Tools</h3>
+    <p><strong>Technical Skills:</strong> SEO writing, copywriting, editing, storytelling, academic & journalistic writing</p>
+    <p><strong>Tools:</strong> Google Workspace, Microsoft Office, Grammarly, Canva, Adobe Suite, Meta Business Suite, SEMrush, Wordpress, Yoast SEO</p>
+</section>
+
+<section>
+    <h3>Education</h3>
+    <p>Bachelor of Science in Biology, Magna Cum Laude – Mindanao State University - Iligan Institute of Technology (2018–2022)</p>
+</section>
+
+<section class="contact">
+    <h3>Contact</h3>
+    <p>Email: <a href="mailto:joandrei.bonite@gmail.com">joandrei.bonite@gmail.com</a></p>
+    <p>Phone: <a href="tel:+639770541020">+63 977 054 1020</a></p>
+    <p>Portfolio: <a href="https://writtenbydrei.my.canva.site/" target="_blank">writtenbydrei.my.canva.site</a></p>
+    <p>LinkedIn: <a href="http://linkedin.com/in/jo-andrei-bonite-377577218" target="_blank">linkedin.com/in/jo-andrei-bonite</a></p>
+</section>
+
+<footer>
+    © 2025 Jo Andrei D. Bonite | All Rights Reserved
+</footer>
+
+</body>
+</html>
