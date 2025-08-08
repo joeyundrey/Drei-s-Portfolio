@@ -1,115 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jo Andrei D. Bonite | Portfolio</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            color: #333;
-            background-color: #f8f9fa;
-        }
-        header {
-            background-color: #003366;
-            color: white;
-            text-align: center;
-            padding: 40px 20px;
-        }
-        header img {
-            border-radius: 50%;
-            width: 160px;
-            height: 160px;
-            object-fit: cover;
-            border: 4px solid white;
-        }
-        header h1 {
-            margin: 15px 0 5px;
-            font-size: 28px;
-        }
-        header h2 {
-            margin: 5px 0;
-            font-weight: normal;
-            font-size: 18px;
-        }
-        section {
-            max-width: 1000px;
-            margin: auto;
-            padding: 20px;
-        }
-        h3 {
-            color: #003366;
-            border-bottom: 2px solid #003366;
-            padding-bottom: 5px;
-            margin-bottom: 15px;
-        }
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-        ul li {
-            margin-bottom: 10px;
-        }
-        .contact a {
-            color: #003366;
-            text-decoration: none;
-        }
-        footer {
-            text-align: center;
-            padding: 15px;
-            background: #003366;
-            color: white;
-            font-size: 14px;
-        }
-    </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Jo Andrei D. Bonite — Portfolio</title>
+<style>
+  :root{
+    --navy:#003366; --accent:#00b3ff; --bg:#f4f9ff; --card:#ffffff;
+    --radius:12px; --maxw:1100px;
+  }
+  *{box-sizing:border-box}
+  body{font-family: "Segoe UI", Roboto, Arial, sans-serif; margin:0; background:var(--bg); color:#222;}
+  header{background:linear-gradient(135deg,var(--navy),var(--accent)); color:#fff; text-align:center; padding:48px 20px;}
+  header img{width:150px;height:150px;border-radius:50%;object-fit:cover;border:4px solid rgba(255,255,255,0.18); box-shadow:0 8px 24px rgba(0,0,0,0.15);}
+  header h1{margin:14px 0 4px;font-size:28px;letter-spacing:0.2px}
+  header p{margin:6px 0 0;opacity:0.95}
+
+  nav{background:var(--navy); text-align:center; padding:10px}
+  nav a{color:#fff;text-decoration:none;margin:0 14px;font-weight:600}
+  nav a:hover{color:var(--accent)}
+
+  main{max-width:var(--maxw); margin:32px auto;padding:0 18px}
+  h2.section-title{color:var(--navy); border-bottom:3px solid var(--accent); display:inline-block; padding-bottom:6px; margin:0 0 18px}
+
+  /* projects grid */
+  .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+  .card{background:var(--card); border-radius:var(--radius); padding:16px; box-shadow:0 8px 20px rgba(3,18,36,0.06); transition:transform .22s, box-shadow .22s; display:flex;flex-direction:column; justify-content:space-between}
+  .card:hover{transform:translateY(-6px); box-shadow:0 14px 36px rgba(3,18,36,0.12)}
+  .thumb{width:100%; height:160px; border-radius:8px; object-fit:cover; margin-bottom:12px; background:#efefef; display:block}
+  .card h3{margin:6px 0 8px; font-size:18px; color:var(--navy)}
+  .card p{margin:0 0 12px; font-size:14px; color:#444; line-height:1.4}
+  .actions{margin-top:auto; display:flex; gap:10px; align-items:center}
+  .btn{display:inline-block;padding:9px 14px;border-radius:8px;background:var(--navy);color:#fff;text-decoration:none;font-weight:700}
+  .btn.secondary{background:transparent;color:var(--navy);border:1px solid rgba(0,51,102,0.08);font-weight:600}
+  footer{max-width:var(--maxw); margin:28px auto 60px; padding:0 18px; color:#666; text-align:center}
+  @media (max-width:420px){ header h1{font-size:22px} header img{width:120px;height:120px} }
+</style>
 </head>
 <body>
 
 <header>
-    <img src="BONITE, JO ANDREI D..png" alt="Jo Andrei D. Bonite">
-    <h1>Jo Andrei D. Bonite</h1>
-    <h2>Content Writer | Virtual Assistant | Social Media Manager</h2>
-    <p>SEO-driven content writing, copyediting, creative storytelling, social media strategy</p>
+  <img src="BONITE, JO ANDREI D..png" alt="Jo Andrei D. Bonite — photo">
+  <h1>Jo Andrei D. Bonite</h1>
+  <p>Content Writer • Virtual Assistant • Social Media Manager</p>
 </header>
 
-<section>
-    <h3>About Me</h3>
-    <p>SEO-driven Content Writer with 10+ years of experience across editorial, academic, and digital platforms. Proven to increase content engagement by 15–35% through strong research, copyediting, and content strategy. Also experienced as a Virtual Assistant and Social Media Manager, enhancing workflows and brand execution.</p>
-</section>
+<nav>
+  <a href="#about">About</a>
+  <a href="#projects">Sample Work</a>
+  <a href="#contact">Contact</a>
+</nav>
 
-<section>
-    <h3>Professional Experience</h3>
-    <ul>
-        <li><strong>Associate Editor</strong> – Vital Signs Publication (2024–2025): Edited 50+ articles, improved engagement by 30%, managed editorial calendars, and designed cohesive visuals.</li>
-        <li><strong>Circulation & Senior Feature Editor</strong> – Vital Signs Publication (2023–2024): Led features section, mentored writers, increased section engagement by 15%.</li>
-        <li><strong>Virtual Assistant (SEO)</strong> – Credit CRB (2025): Produced 15+ SEO-optimized articles, improved rankings, supported lead generation, and streamlined workflows.</li>
-        <li><strong>Staff Writer</strong> – Silahis Publication (2018–2022): Wrote creative and campus-focused articles featured online and in print.</li>
-    </ul>
-</section>
+<main>
+  <section id="about" aria-labelledby="about-title">
+    <h2 id="about-title" class="section-title">About</h2>
+    <p style="max-width:820px">SEO-driven Content Writer with a track record of increasing engagement 15–35% through research-led content, SEO optimization, and strategic repurposing. Experienced editor and content manager; supports client workflows as a virtual assistant and social media lead.</p>
+  </section>
 
-<section>
-    <h3>Skills & Tools</h3>
-    <p><strong>Technical Skills:</strong> SEO writing, copywriting, editing, storytelling, academic & journalistic writing</p>
-    <p><strong>Tools:</strong> Google Workspace, Microsoft Office, Grammarly, Canva, Adobe Suite, Meta Business Suite, SEMrush, Wordpress, Yoast SEO</p>
-</section>
+  <section id="projects" aria-labelledby="projects-title" style="margin-top:28px">
+    <h2 id="projects-title" class="section-title">Sample Work</h2>
 
-<section>
-    <h3>Education</h3>
-    <p>Bachelor of Science in Biology, Magna Cum Laude – Mindanao State University - Iligan Institute of Technology (2018–2022)</p>
-</section>
+    <div class="projects">
+      <!-- Project 1 -->
+      <article class="card">
+        <img class="thumb" src="soulful-surviving.jpg" alt="Soulful Sundays — The Art of Surviving">
+        <h3>𝚂𝚘𝚞𝚕𝚏𝚞𝚕 𝚂𝚞𝚗𝚍𝚊𝚢𝚜 — The Art of Surviving</h3>
+        <p>Feature piece published on Vital Signs — an exploration of resilience and community in medical student life.</p>
+        <div class="actions">
+          <a class="btn" href="https://www.facebook.com/vitalsignswvsu/posts/pfbid02CWjyLsYovpMk4KzRooXE43bRBgn91VCU2P9S7wVJSPGYKih1c3roMWSMRVruRgLPl?rdid=2YbV25pjmkTOgmK7#" target="_blank" rel="noopener noreferrer">View</a>
+        </div>
+      </article>
 
-<section class="contact">
-    <h3>Contact</h3>
-    <p>Email: <a href="mailto:joandrei.bonite@gmail.com">joandrei.bonite@gmail.com</a></p>
-    <p>Phone: <a href="tel:+639770541020">+63 977 054 1020</a></p>
-    <p>Portfolio: <a href="https://writtenbydrei.my.canva.site/" target="_blank">writtenbydrei.my.canva.site</a></p>
-    <p>LinkedIn: <a href="http://linkedin.com/in/jo-andrei-bonite-377577218" target="_blank">linkedin.com/in/jo-andrei-bonite</a></p>
-</section>
+      <!-- Project 2 -->
+      <article class="card">
+        <img class="thumb" src="soulful-literary.jpg" alt="Soulful Sundays Literary — Nay, mapuli na ko.">
+        <h3>𝚂𝚘𝚞𝚕𝚏𝚞𝚕 𝚂𝚞𝚗𝚍𝚊𝚢𝚜 [𝐋𝐈𝐓𝐄𝐑𝐀𝐑𝐘] — Nay, mapuli na ko.</h3>
+        <p>Short literary piece published on Vital Signs that highlights local voice and narrative craft.</p>
+        <div class="actions">
+          <a class="btn" href="https://www.facebook.com/vitalsignswvsu/posts/pfbid0CFtZKJAXGCa5V4M5KhNb7nZUYfWkUier4DGcsMhZ9Wdvo8qBpVH6DZXJcCBQzToDl?rdid=2ygYne3dlbCGsT8U#" target="_blank" rel="noopener noreferrer">View</a>
+        </div>
+      </article>
+
+      <!-- Project 3 -->
+      <article class="card">
+        <img class="thumb" src="thousand-mile-dream.jpg" alt="The Thousand Mile Dream — Feature">
+        <h3>𝑻𝒉𝒆 𝑻𝒉𝒐𝒖𝒔𝒂𝒏𝒅 𝑴𝒊𝒍𝒆 𝑫𝒓𝒆𝒂𝒎 [𝐅𝐄𝐀𝐓𝐔𝐑𝐄]</h3>
+        <p>In-depth feature highlighting ambition and the long-view of medical careers — published on Vital Signs.</p>
+        <div class="actions">
+          <a class="btn" href="https://www.facebook.com/vitalsignswvsu/posts/pfbid0VGbvxQCH5eZmwWA5jBoPzBY55ughKsBs1PLRPAEeVzU2trYPiQz81e7rdbW4Lfkfl?rdid=3Fk9fVIYWZYrpccJ#" target="_blank" rel="noopener noreferrer">View</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="contact" style="margin-top:34px">
+    <h2 class="section-title">Contact</h2>
+    <p>Email: <a href="mailto:joandrei.bonite@gmail.com">joandrei.bonite@gmail.com</a> • Phone: <a href="tel:+639770541020">+63 977 054 1020</a></p>
+    <p>Portfolio: <a href="https://writtenbydrei.my.canva.site/" target="_blank" rel="noopener noreferrer">writtenbydrei.my.canva.site</a> • LinkedIn: <a href="http://linkedin.com/in/jo-andrei-bonite-377577218" target="_blank" rel="noopener noreferrer">linkedin.com/in/jo-andrei-bonite</a></p>
+  </section>
+</main>
 
 <footer>
-    © 2025 Jo Andrei D. Bonite | All Rights Reserved
+  © 2025 Jo Andrei D. Bonite — All rights reserved
 </footer>
 
 </body>
