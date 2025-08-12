@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8" />
@@ -10,168 +10,167 @@
 <style>
 :root{
   --bg-start:#2b0b3a; --bg-end:#be1558; --accent:#ff8a3d; --turq:#1ed3c6;
-  --muted:#6b7280; --glass:rgba(255,255,255,0.12); --card:rgba(255,255,255,0.94);
+  --muted:#6b7280; --whiteglass: rgba(255,255,255,0.92); --glass-dark: rgba(0,0,0,0.48);
+  --card: rgba(255,255,255,0.96);
   --radius:14px; --maxw:1150px;
-  --transition: 360ms cubic-bezier(.2,.9,.3,1);
+  --ease: cubic-bezier(.2,.9,.3,1);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
 body{
   font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
-  -webkit-font-smoothing:antialiased;
-  background:linear-gradient(135deg,var(--bg-start) 0%, #5b1a6b 35%, var(--bg-end) 100%);
+  -webkit-font-smoothing:antialiased; background:linear-gradient(135deg,var(--bg-start) 0%, #5b1a6b 36%, var(--bg-end) 100%);
   color:#111; line-height:1.45; scroll-behavior:smooth;
 }
 
-/* Floating decorative shapes */
-.float{position:fixed; z-index:0; pointer-events:none; filter: blur(36px); opacity:0.12}
-.f1{width:420px;height:420px;border-radius:46% 54% 50% 50%; background:linear-gradient(45deg,var(--turq),#8b6bff); top:2%; left:-110px;}
-.f2{width:280px;height:280px;border-radius:50%; background:linear-gradient(45deg,#ff7aa1,var(--accent)); bottom:6%; right:-80px;}
-.f3{width:160px;height:160px;border-radius:40%; background:linear-gradient(45deg,#ffd284,#ff7aa1); top:62%; left:76%; opacity:0.08;}
+/* decorative floats */
+.float{ position:fixed; z-index:0; pointer-events:none; filter: blur(36px); opacity:0.12 }
+.f1{width:420px;height:420px;border-radius:46% 54% 48% 52%; background:linear-gradient(45deg,var(--turq),#8b6bff); top:2%; left:-110px;}
+.f2{width:260px;height:260px;border-radius:50%; background:linear-gradient(45deg,#ff7aa1,var(--accent)); bottom:6%; right:-80px;}
+.f3{width:160px;height:160px;border-radius:40%; background:linear-gradient(45deg,#ffd284,#ff7aa1); top:62%; left:76%; opacity:0.08}
 
-/* Header */
+/* header */
 .header-banner{
-  width:100%;
-  height:220px;
-  background-image: url('Beige and Orange Gradient Creative Content Writer LinkedIn Banner.png');
-  background-size:cover; background-position:center;
-  border-bottom-left-radius:30px; border-bottom-right-radius:30px;
+  width:100%; height:240px; background-image:url('Beige and Orange Gradient Creative Content Writer LinkedIn Banner.png');
+  background-size:cover; background-position:center; border-bottom-left-radius:28px; border-bottom-right-radius:28px;
   position:relative; overflow:hidden; display:flex; align-items:flex-end; justify-content:center;
 }
-.header-overlay{
-  width:100%; height:100%; background:linear-gradient(180deg, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0.28) 100%); display:flex; align-items:flex-end; justify-content:center;
-  padding:28px;
-}
-.hero-row{ max-width:1200px; width:100%; display:flex; gap:22px; align-items:center; justify-content:space-between; z-index:3; color:#fff; }
-.hero-left{ display:flex; gap:18px; align-items:center; }
-.headshot{
-  width:120px; height:120px; border-radius:16px; overflow:hidden; box-shadow:0 18px 48px rgba(0,0,0,0.42); transform:translateY(0);
-  transition: transform var(--transition);
-}
-.headshot img{ width:100%; height:100%; object-fit:cover; display:block; }
-.headshot:hover{ transform: translateY(-8px) rotate(-1deg) scale(1.02); }
+.header-overlay{ width:100%; height:100%; background:linear-gradient(180deg, rgba(0,0,0,0.12), rgba(0,0,0,0.28)); display:flex; align-items:flex-end; padding:28px; }
+.hero-row{ max-width:1200px; width:100%; display:flex; gap:22px; align-items:center; justify-content:space-between; color:#fff; z-index:4; }
+.headshot{ width:120px; height:120px; border-radius:16px; overflow:hidden; box-shadow:0 18px 48px rgba(0,0,0,0.42); transition: transform 360ms var(--ease) }
+.headshot img{ width:100%; height:100%; object-fit:cover; display:block }
+.headshot:hover{ transform:translateY(-8px) rotate(-1deg) scale(1.02) }
 
-.header-name{ font-family:Playfair Display, serif; font-size:20px; font-weight:700; letter-spacing:0.2px; }
-.header-role{ font-size:13px; opacity:0.95; margin-top:4px; color:rgba(255,255,255,0.95) }
+.header-name{ font-family:Playfair Display,serif; font-size:20px; font-weight:700; }
+.header-role{ font-size:13px; margin-top:6px; opacity:0.95 }
 
-nav.topnav{ display:flex; gap:10px; align-items:center; }
-.topnav a{ text-decoration:none; padding:8px 12px; border-radius:999px; background: rgba(255,255,255,0.04); color:#fff; font-weight:600; border:1px solid rgba(255,255,255,0.04); transition:all .18s }
+/* navigation */
+.topnav{ display:flex; gap:10px; align-items:center; }
+.topnav a{ text-decoration:none; padding:8px 12px; border-radius:999px; background: rgba(255,255,255,0.04); color:#fff; font-weight:600; border:1px solid rgba(255,255,255,0.04); transition:transform 180ms var(--ease) }
 .topnav a:hover{ transform:translateY(-4px); box-shadow:0 10px 28px rgba(0,0,0,0.26) }
 
-/* Main container */
-main{ max-width:var(--maxw); margin:34px auto 80px; padding:0 20px; position:relative; z-index:5; }
+/* page container */
+main{ max-width:var(--maxw); margin:36px auto 80px; padding:0 20px; position:relative; z-index:5 }
 
-/* Section title */
-.section{ margin-bottom:36px; }
+/* section title */
+.section { margin-bottom:36px }
 .section-title{ display:inline-block; font-family:Playfair Display,serif; color:#fff; font-size:22px; margin-bottom:12px; }
 .section-title::after{ content:""; display:block; height:4px; width:72px; margin-top:10px; background:linear-gradient(90deg,var(--turq), #ff8a8a, var(--accent)); border-radius:6px; }
 
-/* About */
-.about-wrap{ display:grid; grid-template-columns: 320px 1fr; gap:20px; align-items:start; margin-top:12px; }
+/* ABOUT */
+.about-grid{ display:grid; grid-template-columns:320px 1fr; gap:20px; align-items:start; margin-top:12px; }
 .about-card{ background:var(--card); border-radius:12px; padding:18px; box-shadow:0 12px 40px rgba(6,8,20,0.12); border:1px solid rgba(0,0,0,0.04); }
-.about-photo{ width:100%; border-radius:10px; overflow:hidden; margin-bottom:12px; }
+.about-photo{ width:100%; border-radius:10px; overflow:hidden; margin-bottom:12px }
 .about-photo img{ width:100%; height:auto; display:block }
-.about-text h2{ font-family:Playfair Display, serif; margin-bottom:6px; color:#2b0b3a }
-.about-text p{ color:#334155; margin-bottom:10px; font-size:15px; }
 .badges{ display:flex; gap:8px; flex-wrap:wrap; margin-top:8px }
 .badge{ background:linear-gradient(90deg,var(--turq), #6a8cff); color:#fff; padding:8px 10px; border-radius:999px; font-weight:700; font-size:13px }
 
-/* Services */
-.services-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px; margin-top:14px; }
-.service-card{ background:linear-gradient(180deg, rgba(255,255,255,0.96), rgba(255,255,255,0.94)); border-radius:12px; padding:16px; box-shadow:0 12px 40px rgba(12,10,30,0.06); display:flex; gap:12px; align-items:flex-start; transition:transform .22s }
+.about-text h2{ font-family:Playfair Display,serif; margin-bottom:6px; color:#fff; font-size:20px }
+.about-text p{ color:#e9eef6; margin-bottom:10px; font-size:15px }
+
+/* SERVICES */
+.services-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px; margin-top:14px }
+.service-card{ background:linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,255,255,0.96)); border-radius:12px; padding:16px; box-shadow:0 12px 40px rgba(12,10,30,0.06); display:flex; gap:12px; align-items:flex-start; transition:transform 220ms var(--ease) }
 .service-card:hover{ transform:translateY(-8px) }
 .service-icon{ width:62px; height:62px; border-radius:12px; display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg, rgba(255,255,255,0.96), rgba(255,255,255,0.92)); border:1px solid rgba(0,0,0,0.04) }
 .service-title{ font-family:Playfair Display,serif; font-size:16px; color:#2b0b3a; margin-bottom:6px }
 .service-desc{ color:#334155; font-size:14px }
 
-/* Projects */
-.projects-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:18px; margin-top:14px; }
-.project-card{ background:var(--card); border-radius:12px; padding:14px; box-shadow:0 12px 40px rgba(12,10,30,0.06); cursor:pointer; transition:transform .22s; display:flex; flex-direction:column }
+/* SAMPLE WORK */
+.projects-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:18px; margin-top:14px }
+.project-card{ background:var(--card); border-radius:12px; padding:14px; box-shadow:0 12px 40px rgba(12,10,30,0.06); cursor:pointer; transition:transform 220ms var(--ease); display:flex; flex-direction:column }
 .project-card:hover{ transform:translateY(-8px) }
-.project-thumb{ width:100%; height:220px; object-fit:cover; border-radius:10px; margin-bottom:12px }
-.project-title{ font-family:Playfair Display, serif; color:#2b0b3a; margin-bottom:8px }
+.project-thumb{ width:100%; height:200px; object-fit:cover; border-radius:10px; margin-bottom:12px }
+.project-title{ font-family:Playfair Display,serif; color:#2b0b3a; margin-bottom:8px }
 .project-overview{ color:#334155; font-size:14px; margin-bottom:12px }
 
-/* Modal slideshow (project) */
-.modal-backdrop{ position:fixed; inset:0; background: rgba(3,6,20,0.6); display:none; align-items:center; justify-content:center; z-index:100; padding:24px }
-.modal{ width:100%; max-width:960px; background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 30px 120px rgba(0,0,0,0.6); display:flex; flex-direction:column }
-.modal-head{ display:flex; align-items:center; justify-content:space-between; padding:16px 18px; border-bottom:1px solid #eef0f3 }
-.modal-body{ padding:18px; display:grid; grid-template-columns: 1fr 360px; gap:18px; align-items:start }
-.modal-slide{ width:100%; height:360px; border-radius:8px; background:#f7f7f9; display:flex; align-items:center; justify-content:center; overflow:hidden; position:relative }
-.modal-slide img{ width:100%; height:100%; object-fit:cover }
-.modal-side{ background:#fafafa; border-radius:10px; padding:12px; box-shadow: inset 0 1px 0 rgba(0,0,0,0.02) }
-.slide-controls{ display:flex; gap:10px; align-items:center; justify-content:center; margin-top:12px }
+/* slideshow modal */
+.modal-backdrop{ position:fixed; inset:0; background: rgba(3,6,20,0.6); display:none; align-items:center; justify-content:center; z-index:120; padding:20px }
+.modal{ width:100%; max-width:980px; background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 30px 120px rgba(0,0,0,0.6); display:flex; flex-direction:column }
+.modal-head{ display:flex; align-items:center; justify-content:space-between; padding:14px 16px; border-bottom:1px solid #eef0f3 }
+.modal-body{ display:grid; grid-template-columns: 1fr 360px; gap:18px; padding:16px }
+.slide-stage{ position:relative; overflow:hidden; border-radius:8px; background:#111 }
+.slide-inner{ display:flex; width:600%; transition:transform 560ms ease; will-change:transform }
+.slide{ min-width:100%; position:relative; display:flex; flex-direction:column; align-items:flex-start }
+.slide img{ width:100%; height:420px; object-fit:cover; display:block; filter:contrast(0.95) saturate(1.02) }
+.caption{ position:absolute; left:18px; bottom:22px; right:18px; background:linear-gradient(180deg, rgba(0,0,0,0.42), rgba(0,0,0,0.32)); color:#fff; padding:12px; border-radius:8px; font-size:15px; backdrop-filter: blur(4px) }
+.controls{ display:flex; gap:8px; align-items:center; justify-content:center; margin-top:12px }
 .ctrl-btn{ padding:8px 12px; border-radius:8px; background:linear-gradient(90deg,var(--turq), #6a8cff); border:none; color:#fff; font-weight:700; cursor:pointer }
 
-/* Contact */
+/* side panel */
+.modal-side{ background:#fafafa; border-radius:10px; padding:12px; box-shadow: inset 0 1px 0 rgba(0,0,0,0.02) }
+.modal-side h4{ color:#2b0b3a; margin-bottom:8px }
+.modal-side p, .modal-side li{ color:#334155; font-size:14px; line-height:1.5 }
+
+/* autopauser overlay */
+.play-pause{ display:flex; gap:8px; align-items:center; justify-content:center; margin-top:10px }
+
+/* contact */
 .contact-hero{ margin-top:26px; border-radius:18px; overflow:hidden; position:relative; min-height:320px; display:flex; align-items:center; justify-content:center; }
 .contact-hero::before{ content:""; position:absolute; inset:0; background-image:url('https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=5b2b6d7a1c2bc9de7d5b0fae43f2e3b4'); background-size:cover; background-position:center; filter: blur(8px) saturate(1.05) contrast(0.92) brightness(0.86); transform: scale(1.06); z-index:0; }
 .contact-panel{ position:relative; z-index:2; width:min(980px,94%); margin:28px auto; padding:26px; border-radius:14px; background:linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)); border:1px solid rgba(255,255,255,0.06); backdrop-filter: blur(12px); display:flex; gap:18px; align-items:center; justify-content:space-between; flex-wrap:wrap; box-shadow:0 18px 60px rgba(6,8,20,0.36) }
 .contact-left h3{ font-family:Playfair Display,serif; color:#fff }
 .contact-left p{ color:rgba(255,255,255,0.92) }
 .contact-actions{ display:flex; gap:12px; flex-wrap:wrap; align-items:center }
-.contact-btn{ display:inline-flex; gap:10px; align-items:center; padding:12px 16px; border-radius:12px; cursor:pointer; font-weight:700; color:#1f1f1f; background: linear-gradient(90deg,var(--turq), #ffd284); border:none; text-decoration:none; box-shadow: 0 10px 34px rgba(30,211,198,0.12); transition:transform .16s }
+.contact-btn{ display:inline-flex; gap:10px; align-items:center; padding:12px 16px; border-radius:12px; cursor:pointer; font-weight:700; color:#1f1f1f; background: linear-gradient(90deg,var(--turq), #ffd284); border:none; text-decoration:none; box-shadow: 0 10px 34px rgba(30,211,198,0.12); transition:transform 160ms var(--ease) }
 .contact-btn:hover{ transform:translateY(-6px) }
-.contact-small-img{ width:22px; height:22px; object-fit:contain }
+.contact-small-img{ width:20px; height:20px; object-fit:contain }
 
-/* Booking / Form overlay */
-.form-overlay{ position:fixed; inset:0; z-index:120; display:none; align-items:center; justify-content:center; background: rgba(6,6,10,0.6); padding:24px }
+/* form overlay */
+.form-overlay{ position:fixed; inset:0; z-index:140; display:none; align-items:center; justify-content:center; background: rgba(6,6,10,0.6); padding:24px }
 .form-card{ width:100%; max-width:720px; background:#fff; border-radius:12px; padding:18px; box-shadow:0 30px 90px rgba(0,0,0,0.6) }
-.form-row{ display:flex; gap:12px; margin-bottom:10px; flex-wrap:wrap }
 .input, textarea, select{ width:100%; padding:10px 12px; border-radius:10px; border:1px solid #e6e8eb; font-size:14px }
 textarea{ min-height:120px; }
 
-/* footer */
-footer{ text-align:center; color:rgba(255,255,255,0.85); margin-top:40px; font-size:14px; }
+footer{ text-align:center; color:rgba(255,255,255,0.85); margin-top:40px; font-size:14px }
 
-/* Responsive */
-@media (max-width:950px){
-  .about-wrap{ grid-template-columns: 1fr; }
+/* responsive */
+@media (max-width:980px){
+  .about-grid{ grid-template-columns: 1fr; }
   .modal-body{ grid-template-columns: 1fr; }
-  .modal-slide{ height:300px }
+  .slide img{ height:300px }
+  .modal-side{ order:2 }
 }
 </style>
 </head>
 <body>
 
-<!-- floating shapes -->
+<!-- floats -->
 <div class="float f1" aria-hidden="true"></div>
 <div class="float f2" aria-hidden="true"></div>
 <div class="float f3" aria-hidden="true"></div>
 
-<!-- header banner -->
-<div class="header-banner" role="banner" aria-hidden="false">
+<!-- header -->
+<header class="header-banner" role="banner">
   <div class="header-overlay">
     <div class="hero-row">
-      <div class="hero-left">
-        <div class="headshot" title="Jo Andrei D. Bonite">
-          <img src="BONITE, JO ANDREI D..png" alt="Jo Andrei Bonite headshot">
-        </div>
+      <div style="display:flex;gap:14px;align-items:center">
+        <div class="headshot"><img src="BONITE, JO ANDREI D..png" alt="Jo Andrei Bonite headshot"></div>
         <div>
           <div class="header-name">Jo Andrei D. Bonite</div>
           <div class="header-role">Content Writer • Virtual Assistant • Social Media Manager</div>
         </div>
       </div>
+
       <nav class="topnav" aria-label="Main navigation">
         <a href="#about">About</a>
         <a href="#services">Services</a>
-        <a href="#projects">Project</a>
+        <a href="#projects">Work</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
   </div>
-</div>
+</header>
 
 <main>
 
   <!-- ABOUT -->
   <section id="about" class="section">
     <div class="section-title">About</div>
-    <div class="about-wrap">
+
+    <div class="about-grid">
       <div class="about-card">
-        <div class="about-photo">
-          <img src="BONITE, JO ANDREI D..png" alt="Headshot">
-        </div>
+        <div class="about-photo"><img src="BONITE, JO ANDREI D..png" alt="Headshot"></div>
         <div class="badges">
           <div class="badge">SEO Content</div>
           <div class="badge">Social Media Ops</div>
@@ -182,22 +181,20 @@ footer{ text-align:center; color:rgba(255,255,255,0.85); margin-top:40px; font-s
       <div class="about-text">
         <h2>Professional summary</h2>
         <p>
-          I'm an SEO-driven content writer with 10+ years of experience creating editorial, academic, and digital content that converts.
-          I specialize in research-led long-form articles, landing page copy, content strategy, and performance optimization. My approach balances
-          measurable SEO tactics with human-centered storytelling — aiming for content that ranks and resonates.
+          I'm an SEO-driven content writer with 10+ years of experience producing editorial, academic, and digital content that converts.
+          My work combines research-led strategy, clear storytelling, and technical SEO to increase visibility and engagement.
         </p>
 
-        <h3 style="margin-top:12px; font-size:18px; color:#2b0b3a">Experience & impact</h3>
+        <h3 style="margin-top:12px; font-size:18px; color:#fff">Experience & impact</h3>
         <p>
-          I led the Soulful Sundays web series and served in editorial and associate editor roles focused on medical and student publications.
-          My work has improved engagement metrics (organic reach + content conversions) and helped teams streamline editorial workflows.
-          I pair hands-on writing with content operations support — calendar management, repurposing strategy, and analytics-driven iteration.
+          I led Soulful Sundays and served in editorial roles focused on medical and student publications. I consistently improved engagement metrics,
+          helped scale editorial workflows, and provided content ops support including calendars, repurposing, and analytics-driven iteration.
         </p>
 
-        <h3 style="margin-top:12px; font-size:18px; color:#2b0b3a">How I work</h3>
+        <h3 style="margin-top:12px; font-size:18px; color:#fff">How I work</h3>
         <p>
-          I start with research and keyword strategy, align content with audience intent, and produce copy optimized for clarity and SEO.
-          I deliver consistent output, quick turnarounds, and clear handoffs — whether freelance or integrated with an in-house team.
+          Research first. I map search intent and audience needs, then produce optimized copy that respects brand voice and conversion goals.
+          I deliver dependable output on schedule and support teams with clear handoffs and tracking.
         </p>
       </div>
     </div>
@@ -207,116 +204,128 @@ footer{ text-align:center; color:rgba(255,255,255,0.85); margin-top:40px; font-s
   <section id="services" class="section">
     <div class="section-title">Services</div>
 
-    <div class="services-grid" style="margin-top:12px">
+    <div class="services-grid">
       <div class="service-card">
         <div class="service-icon" aria-hidden="true">
-          <!-- SEO icon -->
-          <svg width="36" height="36" viewBox="0 0 24 24" fill="none"><defs><linearGradient id="s1" x1="0" x2="1"><stop offset="0" stop-color="#1ed3c6"/><stop offset="1" stop-color="#ff8a3d"/></linearGradient></defs><path d="M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14z" stroke="url(#s1)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 21l-4.3-4.3" stroke="url(#s1)" stroke-width="1.6"/></svg>
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none"><defs><linearGradient id="g1" x1="0" x2="1"><stop offset="0" stop-color="#1ed3c6"/><stop offset="1" stop-color="#ff8a3d"/></linearGradient></defs><path d="M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14z" stroke="url(#g1)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
         <div>
           <div class="service-title">SEO Content Writing</div>
-          <div class="service-desc">Research-led long-form articles, landing pages, and blog content aligned to keyword strategy and conversion goals. Metadata, internal linking, and readability for search and humans.</div>
+          <div class="service-desc">Research-led long-form, blog and landing pages with keyword strategy, metadata, and on-page optimization to increase organic visibility and conversion.</div>
         </div>
       </div>
 
       <div class="service-card">
         <div class="service-icon" aria-hidden="true">
-          <!-- VA icon -->
-          <svg width="36" height="36" viewBox="0 0 24 24" fill="none"><defs><linearGradient id="s2" x1="0" x2="1"><stop offset="0" stop-color="#ff8a3d"/><stop offset="1" stop-color="#6a8cff"/></linearGradient></defs><rect x="8" y="3" width="8" height="4" rx="1.2" stroke="url(#s2)" stroke-width="1.6"/><path d="M17 7h.8A1.2 1.2 0 0 1 19 8.2v10.6A1.2 1.2 0 0 1 17.8 20H6.2A1.2 1.2 0 0 1 5 18.8V8.2A1.2 1.2 0 0 1 6.2 7H7" stroke="url(#s2)" stroke-width="1.6"/></svg>
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none"><defs><linearGradient id="g2" x1="0" x2="1"><stop offset="0" stop-color="#ff8a3d"/><stop offset="1" stop-color="#6a8cff"/></linearGradient></defs><rect x="8" y="3" width="8" height="4" rx="1.2" stroke="url(#g2)" stroke-width="1.6"/></svg>
         </div>
         <div>
           <div class="service-title">Virtual Assistance (Content Ops)</div>
-          <div class="service-desc">Content calendars, scheduling, outreach, prospecting, and admin. I keep workflows organized and deadlines met so teams move efficiently.</div>
+          <div class="service-desc">Content calendars, scheduling, research, lead qualification, and admin support to keep content operations efficient and predictable.</div>
         </div>
       </div>
 
       <div class="service-card">
         <div class="service-icon" aria-hidden="true">
-          <!-- Social icon -->
-          <svg width="36" height="36" viewBox="0 0 24 24" fill="none"><defs><linearGradient id="s3" x1="0" x2="1"><stop offset="0" stop-color="#6a8cff"/><stop offset="1" stop-color="#1ed3c6"/></linearGradient></defs><path d="M21 15a3 3 0 0 1-3 3H8l-5 4V6a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v9z" stroke="url(#s3)" stroke-width="1.6"/></svg>
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none"><defs><linearGradient id="g3" x1="0" x2="1"><stop offset="0" stop-color="#6a8cff"/><stop offset="1" stop-color="#1ed3c6"/></linearGradient></defs><path d="M21 15a3 3 0 0 1-3 3H8l-5 4V6a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v9z" stroke="url(#g3)" stroke-width="1.6"/></svg>
         </div>
         <div>
           <div class="service-title">Social Media Management</div>
-          <div class="service-desc">Platform-specific content planning, creative briefs, posting cadence, and performance monitoring to grow engagement and brand authority.</div>
+          <div class="service-desc">Platform-specific planning, creative, scheduling, and analytics to grow audience engagement and brand authority.</div>
         </div>
       </div>
 
       <div class="service-card">
         <div class="service-icon" aria-hidden="true">
-          <!-- Copyediting -->
-          <svg width="36" height="36" viewBox="0 0 24 24" fill="none"><defs><linearGradient id="s4" x1="0" x2="1"><stop offset="0" stop-color="#ff8a3d"/><stop offset="1" stop-color="#6a8cff"/></linearGradient></defs><path d="M3 21l3-1 11-11 1-3-3 1-11 11-1 3z" stroke="url(#s4)" stroke-width="1.6"/></svg>
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none"><defs><linearGradient id="g4" x1="0" x2="1"><stop offset="0" stop-color="#ff8a3d"/><stop offset="1" stop-color="#6a8cff"/></linearGradient></defs><path d="M3 21l3-1 11-11 1-3-3 1-11 11-1 3z" stroke="url(#g4)" stroke-width="1.6"/></svg>
         </div>
         <div>
           <div class="service-title">Copyediting & Proofreading</div>
-          <div class="service-desc">Tone, clarity, grammar, and SEO alignment for marketing, editorial and academic material. I preserve voice while ensuring correctness and flow.</div>
+          <div class="service-desc">Tone, clarity, grammar, and SEO alignment across editorial, marketing and academic material — preserving voice while ensuring correctness.</div>
         </div>
       </div>
 
       <div class="service-card">
         <div class="service-icon" aria-hidden="true">
-          <!-- Visual -->
-          <svg width="36" height="36" viewBox="0 0 24 24" fill="none"><defs><linearGradient id="s5" x1="0" x2="1"><stop offset="0" stop-color="#ffd284"/><stop offset="1" stop-color="#ff7aa1"/></linearGradient></defs><path d="M21 12a8 8 0 1 1-9-7.95" stroke="url(#s5)" stroke-width="1.6"/><circle cx="7.5" cy="11.5" r="0.8" fill="#ff7aa1"/></svg>
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none"><defs><linearGradient id="g5" x1="0" x2="1"><stop offset="0" stop-color="#ffd284"/><stop offset="1" stop-color="#ff7aa1"/></linearGradient></defs><path d="M21 12a8 8 0 1 1-9-7.95" stroke="url(#g5)" stroke-width="1.6"/></svg>
         </div>
         <div>
           <div class="service-title">Visual Content & Graphics</div>
-          <div class="service-desc">Cover images, social visuals, and simple infographics to support content strategy — fast-turn assets delivered in Canva or Adobe formats.</div>
+          <div class="service-desc">Fast-turn visuals and layouts (Canva / Adobe) to support articles, social posts and presentation materials.</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PROJECTS -->
+  <!-- SAMPLE WORK -->
   <section id="projects" class="section">
-    <div class="section-title">Project — Soulful Sundays</div>
+    <div class="section-title">Sample Work</div>
 
-    <div class="projects-grid">
-      <div class="project-card" id="open-soulful">
+    <div class="projects-grid" style="margin-top:12px">
+      <!-- Soulful Sundays (opens slideshow) -->
+      <div class="project-card" id="open-soulful" role="button" tabindex="0" aria-pressed="false" title="Open Soulful Sundays project">
         <img class="project-thumb" src="soulful-slide-1.jpg" alt="Soulful Sundays thumbnail">
-        <div class="project-title">Soulful Sundays</div>
-        <div class="project-overview">
-          Soulful Sundays is a weekly web content series that I led and spearheaded dedicated to posting literary pieces and art from writers and artists — each piece brewed with emotion, impact, and soul.
-        </div>
+        <div class="project-title">soulful sundays</div>
+        <div class="project-overview">Soulful Sundays is a weekly web content series I led — literary pieces and art by writers and artists, brewed with emotion, impact, and soul.</div>
         <div style="margin-top:auto; display:flex; gap:8px">
-          <a class="btn btn-view" href="#" onclick="document.getElementById('open-soulful').click();return false">View project</a>
-          <a class="btn btn-secondary" href="https://www.facebook.com/vitalsignswvsu" target="_blank" rel="noopener">Publication</a>
+          <button class="btn" style="background:linear-gradient(90deg,var(--turq), #6a8cff); color:#fff">Open</button>
+          <a class="btn" style="background:linear-gradient(90deg,#ffd284,var(--accent)); color:#111" href="https://www.facebook.com/vitalsignswvsu/posts/pfbid02CWjyLsYovpMk4KzRooXE43bRBgn91VCU2P9S7wVJSPGYKih1c3roMWSMRVruRgLPl?rdid=2YbV25pjmkTOgmK7#" target="_blank">View Post</a>
+        </div>
+      </div>
+
+      <!-- Soulful Sundays [Literary] placeholder -->
+      <div class="project-card">
+        <img class="project-thumb" src="soulful-literary.jpg" alt="Soulful Sundays literary thumbnail">
+        <div class="project-title">𝚂𝚘𝚞𝚕𝚏𝚞𝚕 𝚂𝚞𝚗𝚍𝚊𝚢𝚜 [LITERARY]</div>
+        <div class="project-overview">Short literary entries and visual art pieces published on Vital Signs to showcase voice and craft.</div>
+        <div style="margin-top:auto; display:flex; gap:8px">
+          <a class="btn" style="background:linear-gradient(90deg,var(--turq), #6a8cff); color:#fff" href="https://www.facebook.com/vitalsignswvsu/posts/pfbid0CFtZKJAXGCa5V4M5KhNb7nZUYfWkUier4DGcsMhZ9Wdvo8qBpVH6DZXJcCBQzToDl?rdid=2ygYne3dlbCGsT8U#" target="_blank">View Post</a>
+        </div>
+      </div>
+
+      <!-- The Thousand Mile Dream placeholder -->
+      <div class="project-card">
+        <img class="project-thumb" src="thousand-mile-dream.jpg" alt="The Thousand Mile Dream thumbnail">
+        <div class="project-title">The Thousand Mile Dream</div>
+        <div class="project-overview">In-depth feature on ambition and the long road of medical careers — human-centered reporting and narrative structure.</div>
+        <div style="margin-top:auto; display:flex; gap:8px">
+          <a class="btn" style="background:linear-gradient(90deg,var(--turq), #6a8cff); color:#fff" href="https://www.facebook.com/vitalsignswvsu/posts/pfbid0VGbvxQCH5eZmwWA5jBoPzBY55ughKsBs1PLRPAEeVzU2trYPiQz81e7rdbW4Lfkfl?rdid=3Fk9fVIYWZYrpccJ#" target="_blank">View Post</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Contact -->
+  <!-- CONTACT -->
   <section id="contact" class="section">
     <div class="section-title">Contact</div>
 
-    <div class="contact-hero" role="region">
+    <div class="contact-hero" role="region" aria-label="Contact section">
       <div class="contact-panel">
         <div class="contact-left">
           <h3>Let's work together</h3>
-          <p>Available for contract writing, content operations, and short consulting engagements. Click Book to schedule or use the contact buttons to email / call.</p>
+          <p>Available for contract writing, content operations, and short consulting engagements. Click Book to schedule or use Email / Call to reach me.</p>
 
-          <div class="contact-actions" style="margin-top:12px;">
-            <!-- Email SVG inline -->
+          <div class="contact-actions" style="margin-top:12px">
+            <!-- email svg -->
             <a class="contact-btn" href="mailto:joandrei.bonite@gmail.com" title="Email">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="flex-shrink:0"><path d="M3 8.5v7a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" stroke="#0d0d0d" stroke-width="1.2"/><path d="M21 7l-9 6-9-6" stroke="#0d0d0d" stroke-width="1.2"/></svg>
               Email
             </a>
 
-            <!-- Phone SVG inline -->
+            <!-- phone svg -->
             <a class="contact-btn" href="tel:+639770541020" title="Call">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="flex-shrink:0"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.11 19.5 19.5 0 0 1-6-6 19.86 19.86 0 0 1-3.11-8.63A2 2 0 0 1 4.09 2h3" stroke="#0d0d0d" stroke-width="1.2"/></svg>
               Call
             </a>
 
-            <!-- LinkedIn icon you provided -->
-            <a class="contact-btn" href="https://www.linkedin.com/in/jo-andrei-bonite-377577218/" target="_blank" rel="noopener" title="LinkedIn">
-              <img src="images.png" alt="LinkedIn" class="contact-small-img">
-              LinkedIn
+            <!-- linkedin icon (provided) -->
+            <a class="contact-btn" href="https://www.linkedin.com/in/jo-andrei-bonite-377577218/" target="_blank" title="LinkedIn">
+              <img src="images.png" alt="LinkedIn" class="contact-small-img"> LinkedIn
             </a>
 
-            <!-- Booking icon you provided -->
+            <!-- booking (provided icon) -->
             <button id="bookBtn" class="contact-btn" title="Book consultation">
-              <img src="appointment-line-design-scheduling-calendar-600nw-2525793589.webp" alt="Booking" class="contact-small-img">
-              Book Consultation
+              <img src="appointment-line-design-scheduling-calendar-600nw-2525793589.webp" alt="Booking" class="contact-small-img"> Book Consultation
             </button>
           </div>
         </div>
@@ -335,120 +344,123 @@ footer{ text-align:center; color:rgba(255,255,255,0.85); margin-top:40px; font-s
   <div>© 2025 Jo Andrei D. Bonite — All rights reserved</div>
 </footer>
 
-<!-- Project modal / slideshow -->
+<!-- SLIDESHOW MODAL -->
 <div id="modalBackdrop" class="modal-backdrop" aria-hidden="true">
   <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal-head">
       <div>
         <div id="modalTitle" style="font-family:Playfair Display,serif;font-weight:700;color:#2b0b3a">Soulful Sundays — Project</div>
-        <div style="color:#6b7280;font-size:13px">A weekly literary & arts web series — overview, goals, and results</div>
+        <div style="color:#6b7280;font-size:13px">A weekly literary & arts web series — goals and outcomes</div>
       </div>
+
       <div style="display:flex;gap:8px;align-items:center">
-        <button id="modalPrev" class="ctrl-btn">Prev</button>
-        <button id="modalNext" class="ctrl-btn">Next</button>
-        <button id="modalClose" class="ctrl-btn" style="background:#f3f4f6;color:#2b0b3a">Close</button>
+        <button id="prevSlide" class="ctrl-btn" aria-label="Previous slide">Prev</button>
+        <button id="nextSlide" class="ctrl-btn" aria-label="Next slide">Next</button>
+        <button id="pausePlay" class="ctrl-btn" aria-pressed="false" title="Pause autoplay">Pause</button>
+        <button id="closeModal" class="ctrl-btn" style="background:#f3f4f6;color:#2b0b3a">Close</button>
       </div>
     </div>
 
     <div class="modal-body">
-      <div style="display:flex;flex-direction:column">
-        <!-- slides container -->
-        <div id="slidesContainer" style="position:relative; overflow:hidden; border-radius:8px">
-          <div id="slidesInner" style="display:flex; transition:transform .5s ease">
-            <!-- Slide 0: Intro -->
-            <div style="min-width:100%; padding:12px;">
-              <div class="modal-slide">
-                <img src="soulful-slide-1.jpg" alt="Soulful intro">
-              </div>
-              <div style="margin-top:12px">
-                <h3 style="font-family:Playfair Display,serif;color:#2b0b3a">Soulful Sundays — The Series</h3>
-                <p style="color:#334155">Soulful Sundays is a weekly web content series that I led and spearheaded dedicated to posting literary pieces written by various poets and writers as well as art drawn by different artists, conveying an array of topics brewed with emotion, impact, and soul.</p>
+      <div>
+        <div class="slide-stage" aria-live="polite">
+          <div id="slideInner" class="slide-inner">
+            <!-- Slide 1: Intro -->
+            <div class="slide">
+              <img src="soulful-slide-1.jpg" alt="Soulful Sundays — intro">
+              <div class="caption">
+                <strong>Introduction</strong>
+                <div style="margin-top:8px">Soulful Sundays is a weekly web content series that I led dedicated to posting literary pieces and art by poets and writers — each piece brewed with emotion, impact, and soul.</div>
               </div>
             </div>
 
-            <!-- Slide 1: Goals (grid) -->
-            <div style="min-width:100%; padding:12px;">
-              <div class="modal-slide">
-                <img src="soulful-slide-2.jpg" alt="Goals image">
-              </div>
-              <div style="margin-top:12px">
-                <h4 style="color:#2b0b3a">Goals of the Segment</h4>
-                <ol style="color:#334155; margin-top:8px; line-height:1.6">
-                  <li>Boost Engagement — Literary web content boosted engagements in Facebook by 50%.</li>
-                  <li>Immortalize — To immortalize the medical student experience in words.</li>
-                  <li>Outlet for writers and artists — Giving writers and artists a creative outlet which increased productivity by 75%.</li>
-                  <li>Develop skills in Social Media Content Management — Gained proficiency in Facebook Analytics and Meta Business Suite up to 10 levels.</li>
+            <!-- Slide 2: Goals part A -->
+            <div class="slide">
+              <img src="soulful-slide-2.jpg" alt="Goals">
+              <div class="caption">
+                <strong>Goals of the Segment</strong>
+                <ol style="margin-top:8px;padding-left:18px">
+                  <li><strong>Boost Engagement</strong> — Literary web content boosted engagements on Facebook by 50%.</li>
+                  <li><strong>Immortalize</strong> — To immortalize the medical student experience in words.</li>
                 </ol>
               </div>
             </div>
 
-            <!-- Slide 2: What worked - Consistent postings -->
-            <div style="min-width:100%; padding:12px;">
-              <div class="modal-slide">
-                <img src="soulful-slide-3.jpg" alt="Consistent postings">
-              </div>
-              <div style="margin-top:12px">
-                <h4 style="color:#2b0b3a">What worked well? — Consistency</h4>
-                <p style="color:#334155">Consistent postings every Sunday established Soulful Sundays as a reliable creative fixture. Readers expected new content weekly, building anticipation and routine engagement.</p>
-              </div>
-            </div>
-
-            <!-- Slide 3: Organic participation -->
-            <div style="min-width:100%; padding:12px;">
-              <div class="modal-slide">
-                <img src="soulful-slide-1.jpg" alt="Participation">
-              </div>
-              <div style="margin-top:12px">
-                <h4 style="color:#2b0b3a">Organic Contribution</h4>
-                <p style="color:#334155">Writers contributed voluntarily, drawn by the freedom to explore topics close to their hearts. This yielded authentic voices and diverse narratives without enforced themes.</p>
+            <!-- Slide 3: Goals part B -->
+            <div class="slide">
+              <img src="soulful-slide-3.jpg" alt="Goals continued">
+              <div class="caption">
+                <strong>Goals (continued)</strong>
+                <ol style="margin-top:8px;padding-left:18px">
+                  <li><strong>Outlet for writers and artists</strong> — Gave contributors a creative outlet which increased productivity by 75%.</li>
+                  <li><strong>Develop skills</strong> — Gained proficiency in Facebook Analytics and Meta Business Suite up to 10 levels.</li>
+                </ol>
               </div>
             </div>
 
-            <!-- Slide 4: Aesthetic design & high engagement -->
-            <div style="min-width:100%; padding:12px;">
-              <div class="modal-slide">
-                <img src="soulful-slide-2.jpg" alt="Design and engagement">
-              </div>
-              <div style="margin-top:12px">
-                <h4 style="color:#2b0b3a">Design & Emotion</h4>
-                <p style="color:#334155">Visually cohesive layouts and calm palettes elevated the reading experience. Emotional pieces drove the highest engagement, sparking meaningful dialogue and shares.</p>
+            <!-- Slide 4: What worked — Consistency -->
+            <div class="slide">
+              <img src="soulful-slide-4.jpg" alt="Consistency">
+              <div class="caption">
+                <strong>What worked well — Consistent postings</strong>
+                <div style="margin-top:8px">Maintaining weekly posts helped establish Soulful Sundays as a reliable creative fixture. Audiences began to expect new content every Sunday, building anticipation and routine engagement.</div>
               </div>
             </div>
 
+            <!-- Slide 5: What worked — Participation & Design -->
+            <div class="slide">
+              <img src="soulful-slide-5.jpg" alt="Participation and design">
+              <div class="caption">
+                <strong>Organic participation & design</strong>
+                <div style="margin-top:8px">
+                  <p><strong>Organic participation:</strong> Writers contributed freely, producing authentic and diverse voices.</p>
+                  <p><strong>Aesthetic post designs:</strong> Visually cohesive layouts and calming palettes enhanced reading and encouraged reflection.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 6: What worked — Engagement -->
+            <div class="slide">
+              <img src="soulful-slide-6.jpg" alt="Engagement">
+              <div class="caption">
+                <strong>High engagement on emotional pieces</strong>
+                <div style="margin-top:8px">Posts on grief, hope, burnout, or healing received the most reactions and shares — the series sparked meaningful dialogue and deep engagement.</div>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="slide-controls">
-          <div id="slideDots" style="display:flex;gap:8px"></div>
+        <div class="controls" style="margin-top:12px">
+          <div id="dots" style="display:flex;gap:8px;justify-content:center"></div>
         </div>
       </div>
 
       <aside class="modal-side">
-        <h4 style="color:#2b0b3a">Quick metrics</h4>
-        <ul style="color:#334155; margin-top:8px; line-height:1.6">
-          <li><strong>Engagement:</strong> +50% on Facebook posts</li>
-          <li><strong>Writer productivity:</strong> +75%</li>
-          <li><strong>Analytics skill:</strong> Improved Meta Business Suite proficiency</li>
+        <h4>Quick metrics</h4>
+        <ul style="margin-top:8px">
+          <li><strong>Engagement:</strong> +50% on Facebook</li>
+          <li><strong>Productivity:</strong> +75% for contributing writers</li>
+          <li><strong>Analytics:</strong> improved Meta Business Suite proficiency</li>
         </ul>
 
         <div style="margin-top:14px">
-          <a href="https://www.facebook.com/vitalsignswvsu" target="_blank" rel="noopener" class="btn btn-view">View Publication</a>
+          <a class="btn" href="https://www.facebook.com/vitalsignswvsu" target="_blank" rel="noopener" style="background:linear-gradient(90deg,var(--turq), #6a8cff); color:#fff">View Publication</a>
         </div>
       </aside>
     </div>
   </div>
 </div>
 
-<!-- Booking Form overlay (Formspree) -->
+<!-- BOOKING FORM OVERLAY -->
 <div id="formOverlay" class="form-overlay" aria-hidden="true">
   <div class="form-card" role="dialog" aria-modal="true" aria-labelledby="formTitle">
     <h3 id="formTitle" style="font-family:Playfair Display,serif;color:#2b0b3a">Book a Consultation</h3>
-    <p style="color:#555">Fill out the form below and I will get back to you within 48 hours.</p>
+    <p style="color:#555">Fill out this form and I'll get back to you within 48 hours.</p>
 
     <form id="bookingForm" action="https://formspree.io/f/mvgqvlva" method="POST">
-      <div class="form-row">
-        <input class="input" name="name" placeholder="Full name" required style="flex:1">
-        <input class="input" name="_replyto" type="email" placeholder="Email" required style="flex:1">
+      <div style="display:flex;gap:12px;margin-bottom:10px;flex-wrap:wrap">
+        <input class="input" name="name" placeholder="Full name" required style="flex:1 1 220px">
+        <input class="input" name="_replyto" type="email" placeholder="Email" required style="flex:1 1 220px">
       </div>
 
       <div style="margin-bottom:10px">
@@ -470,7 +482,7 @@ footer{ text-align:center; color:rgba(255,255,255,0.85); margin-top:40px; font-s
 
       <div style="display:flex;gap:8px;justify-content:flex-end;align-items:center">
         <button type="button" id="formCancel" class="ctrl-btn" style="background:#f3f4f6;color:#2b0b3a">Cancel</button>
-        <button type="submit" class="submit-btn">Send request</button>
+        <button type="submit" class="ctrl-btn" style="background:linear-gradient(90deg,var(--turq), #6a8cff); color:#fff">Send request</button>
       </div>
 
       <div id="bookingStatus" style="margin-top:12px;display:none;font-weight:700"></div>
@@ -479,107 +491,153 @@ footer{ text-align:center; color:rgba(255,255,255,0.85); margin-top:40px; font-s
 </div>
 
 <script>
-/* Modal slideshow logic */
+/* Slideshow behavior (6 slides) with autoplay, pause/play, auto-pause on manual interaction */
 (function(){
-  const openBtn = document.getElementById('open-soulful');
-  const backdrop = document.getElementById('modalBackdrop');
-  const closeBtn = document.getElementById('modalClose');
-  const prev = document.getElementById('modalPrev');
-  const next = document.getElementById('modalNext');
-  const slidesInner = document.getElementById('slidesInner');
-  const slides = slidesInner.children;
-  const dotsEl = document.getElementById('slideDots');
-
-  let idx = 0;
+  const slideInner = document.getElementById('slideInner');
+  const slides = slideInner.children;
   const total = slides.length;
+  const dotsContainer = document.getElementById('dots');
+  const prevBtn = document.getElementById('prevSlide');
+  const nextBtn = document.getElementById('nextSlide');
+  const pausePlayBtn = document.getElementById('pausePlay');
+  const openBtn = document.getElementById('open-soulful');
+  const closeBtn = document.getElementById('closeModal');
+  const backdrop = document.getElementById('modalBackdrop');
 
-  // build dots
+  let index = 0;
+  let autoplay = true;
+  const intervalMs = 5000;
+  let timer = null;
+  let userInteracted = false;
+
+  // create dots
   for(let i=0;i<total;i++){
     const d = document.createElement('button');
-    d.className='ctrl-btn';
-    d.style.padding='6px';
-    d.textContent = (i+1);
+    d.className = 'ctrl-btn';
+    d.style.padding = '6px';
+    d.textContent = i+1;
     d.dataset.i = i;
-    d.addEventListener('click', ()=> goTo(i));
-    dotsEl.appendChild(d);
-  }
-
-  function goTo(i){
-    idx = (i + total) % total;
-    slidesInner.style.transform = 'translateX(' + (-idx * 100) + '%)';
-    // highlight dot
-    Array.from(dotsEl.children).forEach((b,bi)=> {
-      b.style.opacity = (bi===idx) ? '1' : '0.5';
+    d.addEventListener('click', ()=> {
+      goTo(i);
+      pauseOnUser();
     });
+    dotsContainer.appendChild(d);
   }
 
-  function open(){
-    backdrop.style.display = 'flex';
-    backdrop.setAttribute('aria-hidden','false');
-    goTo(0);
-    document.body.style.overflow='hidden';
-  }
-  function closeModal(){
-    backdrop.style.display = 'none';
-    backdrop.setAttribute('aria-hidden','true');
-    document.body.style.overflow='';
+  function updateDots(){
+    Array.from(dotsContainer.children).forEach((b,bi) => b.style.opacity = (bi === index) ? '1' : '0.5');
   }
 
-  openBtn && openBtn.addEventListener('click', open);
-  closeBtn.addEventListener('click', closeModal);
-  prev.addEventListener('click', ()=> goTo(idx-1));
-  next.addEventListener('click', ()=> goTo(idx+1));
-  backdrop.addEventListener('click', (e)=> { if(e.target === backdrop) closeModal(); });
-  document.addEventListener('keydown', (e)=> { if(e.key === 'Escape') closeModal(); if(e.key === 'ArrowRight') goTo(idx+1); if(e.key === 'ArrowLeft') goTo(idx-1); });
+  function goTo(n){
+    index = (n + total) % total;
+    slideInner.style.transform = 'translateX(' + (-index * 100) + '%)';
+    updateDots();
+  }
+
+  function next(){
+    goTo(index + 1);
+  }
+  function prev(){
+    goTo(index - 1);
+  }
+
+  function startAutoplay(){
+    if(timer) clearInterval(timer);
+    timer = setInterval(()=> { if(autoplay) next(); }, intervalMs);
+    pausePlayBtn.textContent = 'Pause';
+    pausePlayBtn.setAttribute('aria-pressed','false');
+  }
+
+  function stopAutoplay(){
+    autoplay = false;
+    pausePlayBtn.textContent = 'Play';
+    pausePlayBtn.setAttribute('aria-pressed','true');
+    if(timer){ clearInterval(timer); timer = null; }
+  }
+
+  function toggleAutoplay(){
+    autoplay = !autoplay;
+    if(autoplay) startAutoplay(); else stopAutoplay();
+  }
+
+  function pauseOnUser(){
+    // manual interaction pauses autoplay; user can resume with Play
+    userInteracted = true;
+    autoplay = false;
+    if(timer){ clearInterval(timer); timer = null; }
+    pausePlayBtn.textContent = 'Play';
+    pausePlayBtn.setAttribute('aria-pressed','true');
+  }
+
+  // controls
+  nextBtn.addEventListener('click', ()=> { next(); pauseOnUser(); });
+  prevBtn.addEventListener('click', ()=> { prev(); pauseOnUser(); });
+  pausePlayBtn.addEventListener('click', ()=> { toggleAutoplay(); if(autoplay) startAutoplay(); });
+
+  // open / close modal
+  openBtn && openBtn.addEventListener('click', ()=> { backdrop.style.display = 'flex'; backdrop.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; goTo(0); if(!userInteracted){ autoplay = true; startAutoplay(); } });
+  closeBtn.addEventListener('click', ()=> { backdrop.style.display = 'none'; backdrop.setAttribute('aria-hidden','true'); document.body.style.overflow=''; if(timer){ clearInterval(timer); timer = null; } });
+  backdrop.addEventListener('click', (e)=> { if(e.target === backdrop){ closeBtn.click(); } });
+  document.addEventListener('keydown', (e)=> { if(e.key === 'Escape') closeBtn.click(); if(e.key === 'ArrowRight'){ next(); pauseOnUser(); } if(e.key === 'ArrowLeft'){ prev(); pauseOnUser(); } });
+
+  // init
+  goTo(0);
+
+  // start autoplay timer when modal opens; if modal isn't open, timer not necessary
+  // But for safety, start timer in background (will only call next when autoplay true)
+  startAutoplay();
 })();
 
-/* Booking form overlay (Formspree) */
+/* Project card keyboard support - open modal on Enter key */
+(function(){
+  const openBtn = document.getElementById('open-soulful');
+  openBtn && openBtn.addEventListener('keydown', (e)=> { if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openBtn.click(); }});
+})();
+
+/* Booking / Formspree AJAX handling */
 (function(){
   const bookBtn = document.getElementById('bookBtn');
-  const overlay = document.getElementById('formOverlay');
-  const cancel = document.getElementById('formCancel');
-  const form = document.getElementById('bookingForm');
-  const status = document.getElementById('bookingStatus');
+  const formOverlay = document.getElementById('formOverlay');
+  const formCancel = document.getElementById('formCancel');
+  const bookingForm = document.getElementById('bookingForm');
+  const bookingStatus = document.getElementById('bookingStatus');
 
-  function open(){ overlay.style.display = 'flex'; overlay.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; }
-  function close(){ overlay.style.display = 'none'; overlay.setAttribute('aria-hidden','true'); document.body.style.overflow=''; status.style.display='none'; status.textContent=''; }
+  function openForm(){ formOverlay.style.display='flex'; formOverlay.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; }
+  function closeForm(){ formOverlay.style.display='none'; formOverlay.setAttribute('aria-hidden','true'); document.body.style.overflow=''; bookingStatus.style.display='none'; bookingStatus.textContent=''; }
 
-  bookBtn.addEventListener('click', open);
-  cancel.addEventListener('click', close);
-  overlay.addEventListener('click', (e)=> { if(e.target === overlay) close(); });
-  document.addEventListener('keydown', (e)=> { if(e.key==='Escape') close(); });
+  bookBtn.addEventListener('click', openForm);
+  formCancel.addEventListener('click', closeForm);
+  formOverlay.addEventListener('click', (e)=> { if(e.target === formOverlay) closeForm(); });
+  document.addEventListener('keydown', (e)=> { if(e.key === 'Escape') closeForm(); });
 
-  form.addEventListener('submit', async function(e){
+  bookingForm.addEventListener('submit', async function(e){
     e.preventDefault();
-    status.style.display='none';
-    const data = new FormData(form);
+    bookingStatus.style.display='none';
+    const data = new FormData(bookingForm);
     try{
-      const res = await fetch(form.action, { method:'POST', headers:{ 'Accept':'application/json' }, body: data });
+      const res = await fetch(bookingForm.action, { method:'POST', headers:{ 'Accept':'application/json' }, body: data });
       if(res.ok){
-        status.style.color = '#0b6b3a';
-        status.textContent = 'Request sent — I will get back to you within 48 hours.';
-        status.style.display='block';
-        form.reset();
-        setTimeout(()=> close(), 2000);
+        bookingStatus.style.color = '#0b6b3a';
+        bookingStatus.textContent = 'Request sent — I will get back to you within 48 hours.';
+        bookingStatus.style.display='block';
+        bookingForm.reset();
+        setTimeout(()=> closeForm(), 2000);
       } else {
         const json = await res.json();
         throw new Error(json.error || 'Submission failed');
       }
     } catch(err){
-      status.style.color = '#8b1d3a';
-      status.textContent = 'Submission failed. You can email joandrei.bonite@gmail.com';
-      status.style.display='block';
+      bookingStatus.style.color = '#8b1d3a';
+      bookingStatus.textContent = 'Submission failed. Please email joandrei.bonite@gmail.com';
+      bookingStatus.style.display='block';
       console.error(err);
     }
   });
 })();
 
-/* small enhancement: lazy-load project images if not present */
+/* lazy load images */
 document.addEventListener('DOMContentLoaded', ()=> {
-  const imgs = document.querySelectorAll('img');
-  imgs.forEach(img=>{
-    img.loading = 'lazy';
-  });
+  document.querySelectorAll('img').forEach(img => img.loading = 'lazy');
 });
 </script>
 
